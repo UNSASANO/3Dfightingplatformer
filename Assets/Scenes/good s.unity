@@ -476,13 +476,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 1
-  normalSpeed: 10
-  sprintSpeed: 20
+  normalSpeed: 1
+  sprintSpeed: 5
   groundChecker: {fileID: 1868278420}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   jumpForce: 300
+  maxSprint: 5
 --- !u!1 &404391675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,7 +2560,7 @@ GameObject:
   - component: {fileID: 323886754975301417}
   - component: {fileID: 5993012157374606067}
   - component: {fileID: 3512319667673080593}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3142,8 +3143,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4307543828863222031}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.65, y: 3.17, z: -16.97}
-  m_LocalScale: {x: 0.86358, y: 1, z: 1}
+  m_LocalPosition: {x: 21.829, y: 4.3544, z: -19.558}
+  m_LocalScale: {x: 0.3076763, y: 0.35628, z: 0.35628}
   m_Children:
   - {fileID: 1868278421}
   - {fileID: 805970019}
