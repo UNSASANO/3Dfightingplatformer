@@ -25,6 +25,10 @@ public class CharacterController : MonoBehaviour
     public float maxSprint = 5.0f;
     float sprintTimer;
 
+    bool dashCheck = false;
+    float dashTimer = 1f;
+
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -57,9 +61,26 @@ public class CharacterController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            dashCheck = true;   
+        }
+
         sprintTimer = Mathf.Clamp(sprintTimer, 0.0f, maxSprint);
         
         Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
+
+        if (dashCheck ==  true && dashTimer > 0f)
+        {
+            newVelocity = newVelocity * 4;
+            dashTimer = dashTimer - Time.deltaTime;
+        }
+        else
+        {
+            dashTimer = 1f;
+            dashCheck = false;
+        }
+
         myRigidbody.velocity = new Vector3(newVelocity.x, myRigidbody.velocity.y, newVelocity.z);
 
         rotation = rotation + Input.GetAxis("Mouse X") * rotationSpeed;
