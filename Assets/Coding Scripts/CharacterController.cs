@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -28,6 +29,11 @@ public class CharacterController : MonoBehaviour
     bool dashCheck = false;
     float dashTimer = 1f;
 
+    /// <summary>
+    /// HEALTH SYSTEM
+    /// </summary>
+    public GameObject Canvas;
+
 
     void Start()
     {
@@ -37,6 +43,7 @@ public class CharacterController : MonoBehaviour
 
         cam = GameObject.Find("Main Camera");
         myRigidbody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
