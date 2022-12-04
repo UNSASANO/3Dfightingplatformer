@@ -34,9 +34,13 @@ public class CharacterController : MonoBehaviour
     /// </summary>
     public GameObject Canvas;
 
+    Animator myAnim;
 
     void Start()
     {
+   
+        myAnim = GetComponentInChildern<Animator>();
+
         Cursor.lockState = CursorLockMode.Locked;
 
         sprintTimer = maxSprint;
@@ -76,6 +80,8 @@ public class CharacterController : MonoBehaviour
         sprintTimer = Mathf.Clamp(sprintTimer, 0.0f, maxSprint);
         
         Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
+
+        myAnim.SetFloat("speed", newVelocity.magnitude);
 
         if (dashCheck ==  true && dashTimer > 0f)
         {
