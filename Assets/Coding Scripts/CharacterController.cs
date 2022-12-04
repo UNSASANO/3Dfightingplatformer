@@ -39,7 +39,7 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
    
-        myAnim = GetComponentInChildern<Animator>();
+        myAnim = GetComponentInChildren<Animator>();
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -54,9 +54,11 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groundLayer);
+        myAnim.SetBool("isOnGround", isOnGround);
 
         if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
         {
+            myAnim.SetTrigger("jumped");
             myRigidbody.AddForce(transform.up * jumpForce);
         }
 
