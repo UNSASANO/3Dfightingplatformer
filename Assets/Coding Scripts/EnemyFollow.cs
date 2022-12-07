@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class EnemyFollow : MonoBehaviour
 {
     public NavMeshAgent enemy;
     public Transform Player;
