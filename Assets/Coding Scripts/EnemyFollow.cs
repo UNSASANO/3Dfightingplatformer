@@ -7,6 +7,7 @@ public class EnemyFollow : MonoBehaviour
 {
     public NavMeshAgent enemy;
     public Transform Player;
+    float damage = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,4 +19,11 @@ public class EnemyFollow : MonoBehaviour
     {
         enemy.SetDestination(Player.position);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        other.gameObject.GetComponent<HealthScript> ().TakeDamage (damage);
+    }
+
+
 }
