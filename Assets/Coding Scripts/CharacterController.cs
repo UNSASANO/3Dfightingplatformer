@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class CharacterController : MonoBehaviour
     public GameObject Canvas;
 
     Animator myAnim;
+
+    public GameObject gameEnd;
 
     void Start()
     {
@@ -103,5 +106,14 @@ public class CharacterController : MonoBehaviour
 
         camRotation = camRotation + Input.GetAxis("Mouse Y") * camRotationSpeed * -1;
         cam.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0.0f, 0.0f));
+    }
+
+    public void OnTriggerEnter(Collider other) 
+    {
+        if (other.tag == "WinCondition")
+        {
+            gameEnd.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+        }   
     }
 }
